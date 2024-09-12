@@ -38,6 +38,7 @@ function App() {
         setError(false);
         setLoader(true);
         const newImages = await fetchImage(inputValue, page);
+
         if (newImages.images.length === 0) {
           return toast.error(`No results found for "${inputValue}"`);
         }
@@ -92,7 +93,7 @@ function App() {
       )}
       {loader && <Loader />}
       {error && <ErrorMessage />}
-      {!loader && totalPages > page && images && (
+      {!loader && images.length > 0 && totalPages > page && (
         <LoadMoreBtn onClick={handleLoadMore} />
       )}
       {isOpen && (

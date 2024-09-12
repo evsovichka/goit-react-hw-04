@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import ReactModal from "react-modal";
+import style from "./ImageModal.module.css";
 
 export default function ImageModal({
   modalImage: {
@@ -17,24 +18,39 @@ export default function ImageModal({
       onRequestClose={onClose}
       shouldCloseOnOverlayClick={true}
       shouldCloseOnEsc={true}
-      style={{ overlay: { backgroundColor: "rgba(60, 60, 60, 0.9)" } }}
+      style={{
+        overlay: { backgroundColor: "rgba(60, 60, 60, 0.9)" },
+        content: {
+          backgroundColor: "rgba(234, 193, 255, 1)",
+          color: "rgb(58, 18, 96)",
+          padding: 10,
+        },
+      }}
     >
-      <div>
-        <img src={regularUrl} alt={description} width="100" />
-        {name && <b>Author: {name}</b>}
-        {social.instagram_username && (
-          <p>
-            <b>Author's instagram:</b> @{social.instagram_username}
-          </p>
-        )}
-        {description && (
-          <p>
-            <b>About photo:</b> {description}
-          </p>
-        )}
-        <p>
-          <b>Likes:</b> {likes}
-        </p>
+      <div className={style.modalWrap}>
+        <div className={style.imgWrap}>
+          <img src={regularUrl} alt={description} className={style.img} />
+        </div>
+        <div className={style.infoWrap}>
+          {name && (
+            <div className={style.infoItem}>
+              <b>Author:</b> <b>{name}</b>
+            </div>
+          )}
+          {social.instagram_username && (
+            <div className={style.infoItem}>
+              <b>Author's instagram:</b> <p>@{social.instagram_username}</p>
+            </div>
+          )}
+          {description && (
+            <div className={style.infoItem}>
+              <b>About photo:</b> <p>{description}</p>
+            </div>
+          )}
+          <div className={style.infoItem}>
+            <b>Likes:</b> <p>{likes}</p>
+          </div>
+        </div>
       </div>
     </ReactModal>
   );

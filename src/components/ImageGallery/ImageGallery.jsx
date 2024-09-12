@@ -3,10 +3,10 @@ import style from "./ImageGallery.module.css";
 
 export default function ImageGallery({ images, onModalImage }) {
   return (
-    <ul>
+    <ul className={style.cardList}>
       {images.map((image) => {
         return (
-          <li key={image.id}>
+          <li key={image.id} className={style.item}>
             <ImageCard image={image} onModalImage={onModalImage} />
           </li>
         );

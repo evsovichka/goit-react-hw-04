@@ -4,6 +4,7 @@ export default function ImageCard({ image, onModalImage }) {
   return (
     <div>
       <button
+        className={style.cardBtn}
         onClick={() =>
           onModalImage({
             regularUrl: image.urls.regular,
@@ -13,7 +14,12 @@ export default function ImageCard({ image, onModalImage }) {
           })
         }
       >
-        <img src={image.urls.small} alt={image.alt_description} width="90" />
+        <img
+          className={style.cardImage}
+          src={image.urls.small}
+          alt={image.alt_description}
+          width="90"
+        />
       </button>
     </div>
   );

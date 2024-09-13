@@ -1,5 +1,4 @@
 .cardList {
-  /* margin-top: 30px; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -12,4 +11,6 @@
 .item {
   display: inline-block;
   width: calc((100% - 3 * 15px) / 4);
+  background-color: rgb(206, 178, 233);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }

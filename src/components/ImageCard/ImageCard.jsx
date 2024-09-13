@@ -3,8 +3,11 @@ import style from "./ImageCard.module.css";
 export default function ImageCard({ image, onModalImage }) {
   return (
     <div>
-      <button
-        className={style.cardBtn}
+      <img
+        className={style.cardImage}
+        src={image.urls.small}
+        alt={image.alt_description}
+        width="90"
         onClick={() =>
           onModalImage({
             regularUrl: image.urls.regular,
@@ -13,14 +16,7 @@ export default function ImageCard({ image, onModalImage }) {
             user: image.user,
           })
         }
-      >
-        <img
-          className={style.cardImage}
-          src={image.urls.small}
-          alt={image.alt_description}
-          width="90"
-        />
-      </button>
+      />
     </div>
   );
 }
